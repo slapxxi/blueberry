@@ -12,9 +12,10 @@
 
 .block-cursor(@visibility: visible) {
   border: 0;
-  background-color: @syntax-cursor-color;
+  background-color: transparent;
   visibility: @visibility;
-  opacity: 0.3;
+  opacity: 1;
+  box-shadow: 0 2px @syntax-cursor-color;
 }
 
 atom-text-editor.vim-mode.command-mode,
