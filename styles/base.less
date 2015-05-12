@@ -1,5 +1,6 @@
 @import "syntax-variables";
 @import "vim-mode";
+@import "source-gfm";
 
 atom-text-editor, :host {
   background-color: @syntax-background-color;
@@ -69,10 +70,18 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .comment {
   color: @grey;
+
+  &.quote {
+    font-style: oblique;
+    font-family: Georgia, serif;
+    font-weight: 600;
+    -webkit-font-smoothing: aliased;
+  }
 }
 
 .entity {
   &.name.type {
+    font-weight: 400;
     color: @white;
   }
 
@@ -94,6 +103,10 @@ atom-text-editor .search-results .marker.current-result .region,
     &.assignment {
       color: @blue;
     }
+
+    &.pipe {
+      color: @grey-middle;
+    }
   }
 
   &.other.special-method {
@@ -106,7 +119,7 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .storage {
-  color: @purple;
+  color: @blue;
 }
 
 .constant {
@@ -125,16 +138,17 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.other.symbol {
+    font-weight: 400;
     color: @white;
   }
 
   &.other.keywords {
-    color: @grey-light;
+    color: @grey-very-light;
   }
 }
 
 .variable {
-  color: @grey-light;
+  color: @grey-very-light;
 
   &.interpolation {
     color: darken(@cyan, 10%);
@@ -145,11 +159,19 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.parameter.function {
-    color: @orange;
+    color: @grey-very-light;
   }
 
   &.other.constant {
     color: @grey-middle;
+  }
+
+  &.other.readwrite {
+    color: @orange;
+  }
+
+  &.unordered.list, &.ordered.list {
+    color: @blue;
   }
 }
 
@@ -159,6 +181,7 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .string {
+  font-weight: 400;
   color: @white;
 
 
@@ -177,16 +200,22 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .punctuation {
   &.definition {
+    &.variable {
+      color: @orange;
+    }
+
     &.comment {
       color: @grey;
     }
 
     &.string,
-    &.variable,
     &.parameters,
-    &.constant,
     &.array {
       color: @grey-middle;
+    }
+
+    &.constant {
+      color: @blue;
     }
 
     &.heading,
@@ -206,7 +235,7 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.section.embedded {
-    color: darken(@red, 10%);
+    color: @grey-middle;
   }
 
   &.section {
@@ -222,7 +251,7 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .support {
   &.class {
-    color: @light-orange;
+    color: @grey-middle;
   }
 
   &.function  {
@@ -236,10 +265,12 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .entity {
   &.name.function {
+    font-weight: 400;
     color: @white;
   }
 
   &.name.class, &.name.type.class {
+    font-weight: 400;
     color: @white;
   }
 
@@ -248,12 +279,15 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.name.tag {
-    color: @red;
-    text-decoration: underline;
+    color: @blue;
   }
 
   &.other.attribute-name {
     color: @orange;
+
+    &.html {
+      color: @grey-middle;
+    }
 
     &.id {
       color: @blue;
@@ -282,6 +316,26 @@ atom-text-editor .search-results .marker.current-result .region,
     background-color: @gray;
     color: @syntax-text-color;
   }
+
+  &.property-name {
+    color: @grey-middle;
+  }
+
+  &.structure.dictionary {
+    color: @blue;
+
+    .string.quoted.double {
+      color: @blue;
+    }
+  }
+
+  &.structure.dictionary.value {
+    color: @white;
+
+    .string.quoted.double {
+      color: @white;
+    }
+  }
 }
 
 .none {
@@ -290,12 +344,12 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .markup {
   &.bold {
-    color: @orange;
-    font-weight: bold;
+    font-weight: 600;
+    color: @blue;
   }
 
   &.changed {
-    color: @purple;
+    color: @red;
   }
 
   &.deleted {
@@ -303,8 +357,9 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.italic {
-    color: @purple;
+    font-weight: 400;
     font-style: italic;
+    color: @white;
   }
 
   &.heading .punctuation.definition.heading {
@@ -323,6 +378,10 @@ atom-text-editor .search-results .marker.current-result .region,
     color: @orange;
   }
 
+  &.underline.link {
+    color: @grey-middle;
+  }
+
   &.raw.inline {
     color: @green;
   }
@@ -339,920 +398,3 @@ atom-text-editor[mini] .scroll-view,
 :host([mini]) .scroll-view {
   padding-left: 1px;
 }
-
-
-// <!-- colors -->
-//
-// <!-- blue: 17f -->
-// <!-- orange: ea3 -->
-// <!-- green: 2c7 -->
-// <!-- acid: ae5 -->
-// <!-- red: e33 -->
-// <!-- pink: e26 -->
-//
-// <!-- /colors -->
-// <?xml version="1.0" encoding="UTF-8"?>
-// <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-// <plist version="1.0">
-// <dict>
-//  <key>name</key>
-//  <string>Finder</string>
-//  <key>settings</key>
-//  <array>
-//    <dict>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#15151d</string>
-//        <key>caret</key>
-//        <string>#4991F3</string>
-//        <key>foreground</key>
-//        <string>#9191ab</string>
-//        <key>invisibles</key>
-//        <string>#bfbff0</string>
-//        <key>lineHighlight</key>
-//        <string>#1a1b25</string>
-//        <key>selection</key>
-//        <string>#3bf</string>
-//      </dict>
-//    </dict>
-//
-//    <!-- HTML -->
-//    <dict>
-//      <key>name</key>
-//      <string>Punctuation.HTML</string>
-//      <key>scope</key>
-//      <string>punctuation.definition.tag.begin.html, punctuation.definition.tag.end.html</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Punctuation.HTML</string>
-//      <key>scope</key>
-//      <string>entity.name.tag.structure.any.html</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Entity.Tag.Block.HTML</string>
-//      <key>scope</key>
-//      <string>entity.name.tag.block.any.html</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Entity.Tag.Inline.HTML</string>
-//      <key>scope</key>
-//      <string>entity.name.tag.inline.any.html</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Entity.Attr.HTML</string>
-//      <key>scope</key>
-//      <string>entity.other.attribute-name.html</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//    <!-- /HTML -->
-//
-//
-//    <!-- Markdown -->
-//     <dict>
-//       <key>name</key>
-//       <string>Sections</string>
-//       <key>scope</key>
-//       <string>entity.name.section,entity.name.section.markdown</string>
-//       <key>settings</key>
-//       <dict>
-//           <key>fontStyle</key>
-//           <string>bold</string>
-//           <key>foreground</key>
-//           <string>#fff</string>
-//       </dict>
-//     </dict>
-//     <!-- /Markdown -->
-//
-//     <!-- C -->
-//    <dict>
-//      <key>name</key>
-//      <string>Preprocessor.C</string>
-//      <key>scope</key>
-//      <string>keyword.control.c</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Preprocessor.C</string>
-//      <key>scope</key>
-//      <string>keyword.operator.arithmetic.c</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Preprocessor.C</string>
-//      <key>scope</key>
-//      <string>meta.preprocessor.c</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//     <!-- /C -->
-//
-//
-//     <!-- Elixir -->
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword.Elixir</string>
-//      <key>scope</key>
-//      <string>keyword.control.elixir, meta.module.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword.Elixir</string>
-//      <key>scope</key>
-//      <string>keyword.operator.other.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#e93</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword.PipeLine.Elixir</string>
-//      <key>scope</key>
-//      <string>keyword.other.pipeline.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable.Elixir</string>
-//      <key>scope</key>
-//      <string>variable.other.constant.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#59596e</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Module.Constant.Elixir</string>
-//      <key>scope</key>
-//      <string>variable.other.readwrite.module.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#e93</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable.Language.Elixir</string>
-//      <key>scope</key>
-//      <string>variable.language.elixir, variable.other.anonymous.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable.Anonymous.Elixir</string>
-//      <key>scope</key>
-//      <string>variable.other.anonymous.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable.Anonymous.Elixir</string>
-//      <key>scope</key>
-//      <string>punctuation.section.array.elixir</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#667</string>
-//      </dict>
-//    </dict>
-//
-//    <!-- /Elixir -->
-//
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword</string>
-//      <key>scope</key>
-//      <string>keyword</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Other</string>
-//      <key>scope</key>
-//      <string>keyword.operator.other</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Logical</string>
-//      <key>scope</key>
-//      <string>keyword.operator.logical</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Arithmetic</string>
-//      <key>scope</key>
-//      <string>keyword.operator.arithmetic</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Comparison</string>
-//      <key>scope</key>
-//      <string>keyword.operator.comparison</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword</string>
-//      <key>scope</key>
-//      <string>keyword.other</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Error</string>
-//      <key>scope</key>
-//      <string>keyword.other.error</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>background</key>
-//        <string>#dde</string>
-//        <key>foreground</key>
-//        <string>#334</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Protect</string>
-//      <key>scope</key>
-//      <string>keyword.other.protect</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string>bold</string>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword Error</string>
-//      <key>scope</key>
-//      <string>keyword.control.error</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Keyword:CSS</string>
-//      <key>scope</key>
-//      <string>meta.at-rule</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable:CSS</string>
-//      <key>scope</key>
-//      <string>variable.scss, variable.css</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Variable</string>
-//      <key>scope</key>
-//      <string>variable.parameter</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>foreground</key>
-//        <string>#707080</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Constant Symbol</string>
-//      <key>scope</key>
-//      <string>constant.other.symbol</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#1c1c2c</string>
-//        <key>foreground</key>
-//        <string>#cacada</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Constant</string>
-//      <key>scope</key>
-//      <string>variable.other.constant</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#bbbbcf</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Block variable</string>
-//      <key>scope</key>
-//      <string>variable.other.block</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#707080</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Constant</string>
-//      <key>scope</key>
-//      <string>variable.other.readwrite</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Constant</string>
-//      <key>scope</key>
-//      <string>variable.language</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#556</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Env Variable</string>
-//      <key>scope</key>
-//      <string>meta.environment-variable</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Numeric</string>
-//      <key>scope</key>
-//      <string>constant.numeric</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#1bf</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Built-in constant</string>
-//      <key>scope</key>
-//      <string>constant.language</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Built-in constant boolean</string>
-//      <key>scope</key>
-//      <string>constant.language.boolean</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Built-in constant Nil</string>
-//      <key>scope</key>
-//      <string>constant.language.nil</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string>bold</string>
-//        <key>background</key>
-//        <string>#dde</string>
-//        <key>foreground</key>
-//        <string>#334</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Built-in constant True</string>
-//      <key>scope</key>
-//      <string>constant.language.true</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#2c7</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Built-in constant False</string>
-//      <key>scope</key>
-//      <string>constant.language.false</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#e25</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Array Definition</string>
-//      <key>scope</key>
-//      <string>punctuation.definition.array</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Block argument</string>
-//      <key>scope</key>
-//      <string>punctuation.separator.variable</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Method Dot</string>
-//      <key>scope</key>
-//      <string>punctuation.separator.method</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#667</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Inheritance separator</string>
-//      <key>scope</key>
-//      <string>punctuation.separator.inheritance</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Embedded Ruby</string>
-//      <key>scope</key>
-//      <string>punctuation.section.embedded</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#1bf</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Embedded Ruby</string>
-//      <key>scope</key>
-//      <string>source.ruby.embedded</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#778</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Support types</string>
-//      <key>scope</key>
-//      <string>support.type.sys-types</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Support types</string>
-//      <key>scope</key>
-//      <string>support.function.C99</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Support function</string>
-//      <key>scope</key>
-//      <string>support.function.any-method</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Curly braces</string>
-//      <key>scope</key>
-//      <string>punctuation.section.scope</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#17f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Selection</string>
-//      <key>scope</key>
-//      <string>string.selection</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#fff</string>
-//        <key>background</key>
-//        <string>#fff</string>
-//      </dict>
-//    </dict>
-//
-//
-//    <dict>
-//      <key>name</key>
-//      <string>String (executed)</string>
-//      <key>scope</key>
-//      <string>string.interpolated</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#22262e</string>
-//        <key>foreground</key>
-//        <string>#3cb878</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Regular expression</string>
-//      <key>scope</key>
-//      <string>string.regexp</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#101020</string>
-//        <key>foreground</key>
-//        <string>#ae5</string>
-//      </dict>
-//    </dict>
-//
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Class name</string>
-//      <key>scope</key>
-//      <string>entity.name.class</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Function name</string>
-//      <key>scope</key>
-//      <string>entity.name.function</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>foreground</key>
-//        <string>#dde</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Storage type</string>
-//      <key>scope</key>
-//      <string>storage.type</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Library function</string>
-//      <key>scope</key>
-//      <string>support.function</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Library function:CSS</string>
-//      <key>scope</key>
-//      <string>support.function.misc.scss</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#ea3</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Library constant</string>
-//      <key>scope</key>
-//      <string>support.constant</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <!-- IMPORTANT -->
-//    <dict>
-//      <key>name</key>
-//      <string>Library class/type</string>
-//      <key>scope</key>
-//      <string>support.type, support.class</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#16f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Inherited class</string>
-//      <key>scope</key>
-//      <string>entity.other.inherited-class</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string>italic</string>
-//        <key>foreground</key>
-//        <string>#889</string>
-//      </dict>
-//    </dict>
-//
-//
-//    <dict>
-//      <key>name</key>
-//      <string>Comment</string>
-//      <key>scope</key>
-//      <string>comment</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>foreground</key>
-//        <string>#414152</string>
-//      </dict>
-//    </dict>
-//
-//    <!-- IMPORTANT -->
-//    <dict>
-//      <key>name</key>
-//      <string>Class name</string>
-//      <key>scope</key>
-//      <string>entity.name</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>foreground</key>
-//        <string>#eef</string>
-//        <!-- This line defines the color of class names in Ruby -->
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>String</string>
-//      <key>scope</key>
-//      <string>string</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>fontStyle</key>
-//        <string></string>
-//        <key>background</key>
-//        <string>#1c1c2c</string>
-//        <key>foreground</key>
-//        <string>#cacada</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>String Exp Lower</string>
-//      <key>scope</key>
-//      <string>string.quoted.other.literal.lower.ruby</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#112</string>
-//        <key>foreground</key>
-//        <string>#19f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>String Exp Upper</string>
-//      <key>scope</key>
-//      <string>string.quoted.other.literal.upper.ruby</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string></string>
-//        <key>foreground</key>
-//        <string>#19f</string>
-//      </dict>
-//    </dict>
-//
-//    <dict>
-//      <key>name</key>
-//      <string>const</string>
-//      <key>scope</key>
-//      <string>constant.language.conventional.actionscript.3</string>
-//      <key>settings</key>
-//      <dict>
-//        <key>background</key>
-//        <string>#15A0FF6B</string>
-//        <key>foreground</key>
-//        <string>#000000</string>
-//      </dict>
-//    </dict>
-//  </array>
-//  <key>uuid</key>
-//  <string>AF801161-5437-4D2A-B347-09FAF2FC7895</string>
-// </dict>
-// </plist>
