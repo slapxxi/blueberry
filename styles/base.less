@@ -107,6 +107,10 @@ atom-text-editor .search-results .marker.current-result .region,
     &.pipe {
       color: @grey-middle;
     }
+
+    &.arrow {
+      color: @blue;
+    }
   }
 
   &.other.special-method {
@@ -143,7 +147,7 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.other.keywords {
-    color: @grey-very-light;
+    color: @grey-middle;
   }
 }
 
@@ -164,6 +168,10 @@ atom-text-editor .search-results .marker.current-result .region,
 
   &.other.constant {
     color: @grey-middle;
+  }
+
+  &.other.anonymous {
+    color: @orange;
   }
 
   &.other.readwrite {
@@ -357,13 +365,12 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 
   &.italic {
-    font-weight: 400;
-    font-style: italic;
-    color: @white;
-  }
+    background-color: @white;
+    color: @grey-dark;
 
-  &.heading .punctuation.definition.heading {
-    color: @blue;
+    &:hover {
+      background-color: @orange;
+    }
   }
 
   &.inserted {
@@ -385,12 +392,27 @@ atom-text-editor .search-results .marker.current-result .region,
   &.raw.inline {
     color: @green;
   }
-}
 
-.source.gfm .markup {
-  -webkit-font-smoothing: auto;
   &.heading {
     color: @green;
+
+    &.heading-1 {
+      float: none;
+      display: block;
+      font-weight: 600;
+      background-color: @orange;
+      color: @grey-dark;
+      text-align: center;
+
+      .markup.heading.marker {
+        display: none;
+        color: @orange;
+      }
+    }
+
+    &.punctuation.definition.heading {
+      color: @blue;
+    }
   }
 }
 
