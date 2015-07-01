@@ -3,6 +3,7 @@
 @import "source-gfm";
 
 atom-text-editor, :host {
+  font-weight: 500;
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -90,21 +91,25 @@ atom-panel .output {
   }
 
   &.other.inherited-class {
-    color: @grey;
+    color: @grey-middle;
   }
 }
 
 .keyword {
+  font-weight: 600;
   color: @blue;
 
   &.control {
     color: @blue;
+    font-weight: 600;
   }
 
   &.operator {
+    font-weight: 500;
     color: @orange;
 
     &.assignment {
+      font-weight: 500;
       color: @blue;
     }
 
@@ -114,28 +119,46 @@ atom-panel .output {
 
     &.arrow {
       color: @blue;
+      font-weight: 800;
     }
   }
 
   &.operator.elm {
     color: @blue;
+    font-weight: 600;
   }
 
   &.other.special-method {
     color: @blue;
+    font-weight: 600;
   }
 
   &.other.unit {
     color: @orange;
   }
+
+  &.other.colon {
+    font-weight: 500;
+    color: @blue;
+  }
 }
 
 .storage {
   color: @blue;
+  font-weight: 600;
 }
 
 .constant {
   color: @orange;
+
+  &.language.python {
+    color: @grey-middle;
+  }
+
+  &.keyword {
+    font-weight: 500;
+    color: @grey-middle;
+  }
 
   &.character.escape {
     color: @cyan;
@@ -187,10 +210,11 @@ atom-panel .output {
   }
 
   &.other.readwrite {
-    color: @orange;
+    color: @cyan;
   }
 
   &.unordered.list, &.ordered.list {
+    font-weight: 600;
     color: @blue;
   }
 }
@@ -220,8 +244,12 @@ atom-panel .output {
 
 .punctuation {
   &.definition {
+    &.inheritance {
+      color: @grey-middle;
+    }
+
     &.variable {
-      color: @orange;
+      color: @cyan;
     }
 
     &.comment {
@@ -230,16 +258,19 @@ atom-panel .output {
 
     &.string,
     &.parameters,
-    &.array {
+    &.array,
+    &.arguments {
       color: @grey-middle;
     }
 
     &.constant {
+      font-weight: 500;
       color: @blue;
     }
 
     &.heading,
     &.identity {
+      font-weight: 600;
       color: @blue;
     }
 
@@ -259,11 +290,16 @@ atom-panel .output {
   }
 
   &.section {
+    &.class {
+      color: @grey-light;
+    }
+
     &.array {
       color: @grey-middle;
     }
 
     &.scope {
+      font-weight: 600;
       color: @blue;
     }
   }
@@ -281,9 +317,23 @@ atom-panel .output {
   &.function  {
     color: @cyan;
 
+    &.magic {
+      font-weight: 500;
+      color: @grey-middle;
+    }
+
+    &.builtin {
+      color: @grey-very-light;
+    }
+
     &.any-method {
+      font-weight: 600;
       color: @blue;
     }
+  }
+
+  &.type.python {
+    color: @grey-middle;
   }
 
   &.type.prelude.elm {
@@ -295,6 +345,11 @@ atom-panel .output {
   &.name.function {
     font-weight: 400;
     color: @white;
+
+    &.decorator {
+      font-weight: 500;
+      color: @grey-middle;
+    }
   }
 
   &.name.class, &.name.type.class {
@@ -303,10 +358,12 @@ atom-panel .output {
   }
 
   &.name.section {
+    font-weight: 600;
     color: @blue;
   }
 
   &.name.tag {
+    font-weight: 600;
     color: @blue;
   }
 
@@ -318,12 +375,17 @@ atom-panel .output {
     }
 
     &.id {
+      font-weight: 600;
       color: @blue;
     }
   }
 }
 
 .meta {
+  &.vector {
+    color: @blue;
+  }
+
   &.class {
     color: @light-orange;
   }
@@ -350,9 +412,11 @@ atom-panel .output {
   }
 
   &.structure.dictionary {
+    font-weight: 600;
     color: @blue;
 
     .string.quoted.double {
+      font-weight: 600;
       color: @blue;
     }
   }
@@ -435,6 +499,7 @@ atom-panel .output {
     }
 
     &.punctuation.definition.heading {
+      font-weight: 600;
       color: @blue;
     }
   }
