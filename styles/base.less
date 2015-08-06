@@ -228,6 +228,10 @@ atom-panel .output {
   font-weight: 400;
   color: @white;
 
+  &.quoted.double.block.python {
+    color: @grey-middle;
+    font-weight: 500;
+  }
 
   &.regexp {
     color: @green;
@@ -483,20 +487,6 @@ atom-panel .output {
 
   &.heading {
     color: @green;
-
-    &.heading-1 {
-      float: none;
-      display: block;
-      font-weight: 600;
-      background-color: @orange;
-      color: @grey-dark;
-      text-align: center;
-
-      .markup.heading.marker {
-        display: none;
-        color: @orange;
-      }
-    }
 
     &.punctuation.definition.heading {
       font-weight: 600;
