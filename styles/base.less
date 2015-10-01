@@ -121,12 +121,17 @@ atom-panel .output {
       color: @blue;
       font-weight: 800;
     }
+
+    &.logical.python {
+      color: @blue;
+
+    }
+    &.elm {
+      color: @blue;
+      font-weight: 600;
+    }
   }
 
-  &.operator.elm {
-    color: @blue;
-    font-weight: 600;
-  }
 
   &.other.special-method {
     color: @blue;
@@ -247,6 +252,10 @@ atom-panel .output {
 }
 
 .punctuation {
+  &.separator.inheritance {
+    color: @grey-middle;
+  }
+
   &.definition {
     &.inheritance {
       color: @grey-middle;
@@ -327,7 +336,11 @@ atom-panel .output {
     }
 
     &.builtin {
-      color: @grey-very-light;
+      color: @cyan;
+
+      &.decorator {
+        color: @grey-middle;
+      }
     }
 
     &.any-method {
@@ -338,6 +351,10 @@ atom-panel .output {
 
   &.type.python {
     color: @grey-middle;
+  }
+
+  &.type.exception {
+    color: @cyan;
   }
 
   &.type.prelude.elm {
@@ -386,6 +403,20 @@ atom-panel .output {
 }
 
 .meta {
+  &.function {
+    &.parameters {
+      color: @grey-middle;
+    }
+  }
+
+  &.function-call {
+    color: @grey-middle;
+
+    &.arguments {
+      color: @grey-light;
+    }
+  }
+
   &.vector {
     color: @blue;
   }
