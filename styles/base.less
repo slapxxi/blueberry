@@ -3,7 +3,7 @@
 @import "source-gfm";
 
 atom-text-editor, :host {
-  font-weight: 500;
+  font-weight: 400;
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -203,7 +203,7 @@ atom-panel .output {
   }
 
   &.parameter.function {
-    color: @grey-very-light;
+    color: @grey-light;
   }
 
   &.other.constant {
@@ -415,9 +415,10 @@ atom-panel .output {
 
   &.function-call {
     color: @grey-middle;
+    font-weight: 500;
 
     &.arguments {
-      color: @grey-light;
+      color: @cyan;
     }
   }
 
@@ -451,11 +452,11 @@ atom-panel .output {
   }
 
   &.structure.dictionary {
-    font-weight: 600;
+    font-weight: 500;
     color: @blue;
 
     .string.quoted.double {
-      font-weight: 600;
+      font-weight: 500;
       color: @blue;
     }
   }
