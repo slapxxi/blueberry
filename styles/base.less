@@ -92,6 +92,7 @@ atom-panel .output {
 
   &.other.inherited-class {
     color: @grey-middle;
+    font-weight: 500;
   }
 }
 
@@ -177,6 +178,10 @@ atom-panel .output {
     color: @cyan;
   }
 
+  &.other.caps {
+    color: @cyan;
+  }
+
   &.other.symbol {
     font-weight: 400;
     color: @white;
@@ -196,6 +201,11 @@ atom-panel .output {
 
   &.interpolation {
     color: darken(@cyan, 10%);
+  }
+
+  &.magic {
+    color: @grey-middle;
+    font-weight: 500;
   }
 
   &.language {
@@ -234,12 +244,12 @@ atom-panel .output {
   color: @white;
 
   &.quoted.double.block.python {
-    color: @grey-middle;
+    color: @grey;
     font-weight: 500;
   }
 
   &.regexp {
-    color: @green;
+    color: @cyan;
 
     .source.ruby.embedded {
       color: @red;
@@ -256,9 +266,17 @@ atom-panel .output {
     color: @grey-middle;
   }
 
+  &.separator.annotation {
+    color: @grey-middle;
+  }
+
   &.definition {
+    &.dict {
+      color: @grey-middle;
+    }
+
     &.list {
-      color: @white;
+      color: @grey-middle;
     }
 
     &.inheritance {
