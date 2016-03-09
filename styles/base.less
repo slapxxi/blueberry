@@ -75,6 +75,7 @@ atom-panel .output {
 
 .comment {
   color: @grey;
+  font-weight: 500;
 
   &.quote {
     font-style: oblique;
@@ -248,6 +249,11 @@ atom-panel .output {
     font-weight: 500;
   }
 
+  &.quoted.docstring {
+    color: @grey;
+    font-weight: 500;
+  }
+
   &.regexp {
     color: @cyan;
 
@@ -262,6 +268,10 @@ atom-panel .output {
 }
 
 .punctuation {
+  &.parenthesis {
+    color: @grey-middle;
+  }
+  
   &.separator.inheritance {
     color: @grey-middle;
   }
@@ -289,6 +299,7 @@ atom-panel .output {
 
     &.comment {
       color: @grey;
+      font-weight: 500;
     }
 
     &.string,
