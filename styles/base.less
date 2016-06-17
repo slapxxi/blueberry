@@ -183,7 +183,7 @@ atom-panel .output {
   }
 
   &.other.caps {
-    color: @cyan;
+    color: @white;
   }
 
   &.other.symbol {
@@ -218,16 +218,15 @@ atom-panel .output {
     &.special {
       color: @cyan;
       font-weight: 400;
-      font-style: italic;
     }
   }
 
   &.parameter.function {
-    color: @grey-light;
+    color: @white;
   }
 
   &.parameter.function-call {
-    color: @cyan;
+    color: @grey-light;
   }
 
   &.other.constant {
@@ -257,7 +256,7 @@ atom-panel .output {
   font-weight: 500;
   font-style: italic;
   padding-right: 1px;
-  color: @white;
+  color: @cyan;
 
   &.regexp {
     color: @cyan;
@@ -278,11 +277,15 @@ atom-panel .output {
   }
 
   &.separator.inheritance {
-    color: @grey-middle;
+    color: @cyan;
   }
 
   &.separator.annotation {
     color: @grey-middle;
+  }
+
+  &.separator.parameters {
+    color: @grey-light;
   }
 
   &.definition {
@@ -312,9 +315,12 @@ atom-panel .output {
       color: @grey-middle;
     }
 
-    &.arguments,
     &.parameters {
-      color: @white;
+      color: @grey-light;
+    }
+
+    &.arguments {
+      color: @grey-middle;
     }
 
     &.constant {
@@ -380,12 +386,11 @@ atom-panel .output {
     color: @cyan;
 
     &.magic {
-      font-weight: 500;
-      color: @grey-middle;
+      color: @white;
     }
 
     &.builtin {
-      color: @cyan;
+      color: @white;
 
       &.decorator {
         color: @grey-middle;
@@ -399,7 +404,7 @@ atom-panel .output {
   }
 
   &.type.python {
-    color: @grey-middle;
+    color: @cyan;
   }
 
   &.type.exception {
@@ -457,6 +462,10 @@ atom-panel .output {
 }
 
 .meta {
+  &.class.inheritance {
+    color: @cyan;
+  }
+
   &.symbol.clojure {
     color: @cyan;
   }
@@ -468,11 +477,10 @@ atom-panel .output {
   }
 
   &.function-call {
-    color: @white;
-    font-weight: 400;
+    color: @blue;
 
     &.arguments {
-      color: @cyan;
+      color: @grey-middle;
     }
   }
 
