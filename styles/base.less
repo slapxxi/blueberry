@@ -92,8 +92,8 @@ atom-panel .output {
   }
 
   &.other.inherited-class {
-    color: @cyan;
-    font-weight: 500;
+    font-weight: 400;
+    color: @white;
   }
 }
 
@@ -156,13 +156,17 @@ atom-panel .output {
 .storage {
   color: @blue;
   font-weight: 600;
+
+  &.type.string {
+    color: @grey-middle;
+  }
 }
 
 .constant {
   color: @orange;
 
   &.language.python {
-    color: @grey-middle;
+    color: @white;
   }
 
   &.keyword {
@@ -208,16 +212,15 @@ atom-panel .output {
   }
 
   &.magic {
-    color: @grey-middle;
+    color: @white;
     font-weight: 500;
   }
 
   &.language {
     color: @white;
 
-    &.special {
-      color: @cyan;
-      font-weight: 400;
+    &.special.self {
+      color: @grey-middle;
     }
   }
 
@@ -253,10 +256,19 @@ atom-panel .output {
 }
 
 .string {
-  font-weight: 500;
   font-style: italic;
-  padding-right: 1px;
+  font-weight: 500;
   color: @cyan;
+
+  &.quoted.docstring {
+    font-style: normal;
+    color: @grey;
+  }
+
+  &.quoted.docstring.raw.single {
+    font-weight: 300;
+    color: @red;
+  }
 
   &.regexp {
     color: @cyan;
@@ -273,7 +285,7 @@ atom-panel .output {
 
 .punctuation {
   &.parenthesis {
-    color: @white;
+    color: @cyan;
   }
 
   &.separator.inheritance {
@@ -290,15 +302,15 @@ atom-panel .output {
 
   &.definition {
     &.dict {
-      color: @white;
+      color: @cyan;
     }
 
     &.list {
-      color: @white;
+      color: @cyan;
     }
 
     &.inheritance {
-      color: @white;
+      color: @grey-light;
     }
 
     &.variable {
@@ -463,7 +475,7 @@ atom-panel .output {
 
 .meta {
   &.class.inheritance {
-    color: @cyan;
+    color: @white;
   }
 
   &.symbol.clojure {
