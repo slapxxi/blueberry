@@ -38,7 +38,7 @@ atom-text-editor, :host {
   .gutter .line-number.folded,
   .gutter .line-number:after,
   .fold-marker:after {
-    color: @light-gray;
+    color: @grey-light;
   }
 
   .invisible {
@@ -71,6 +71,14 @@ atom-panel .output {
 
 .status-bar {
   color: @grey;
+}
+
+.tree-view {
+  background-color: #11111A;
+
+  .selected::before {
+    background-color: #22222A;
+  }
 }
 
 .comment {
@@ -229,6 +237,7 @@ atom-panel .output {
   }
 
   &.parameter.function-call {
+    font-weight: 400;
     color: @grey-light;
   }
 
@@ -492,6 +501,10 @@ atom-panel .output {
     color: @blue;
 
     &.arguments {
+      color: @grey-middle;
+    }
+
+    .keyword.operator.assignment {
       color: @grey-middle;
     }
   }
