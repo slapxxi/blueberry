@@ -1,9 +1,13 @@
 @import "syntax-variables";
 @import "vim-mode";
-@import "source-gfm";
+
+
+.source.python {
+  color: @white;
+}
 
 atom-text-editor, :host {
-  font-weight: 500;
+  font-weight: 400;
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
@@ -69,12 +73,18 @@ atom-panel .output {
   font-size: 1.3em;
 }
 
+.text {
+  &.plain.null-grammar {
+    color: @white;
+  }
+}
+
 .status-bar {
   color: @grey;
 }
 
 .tree-view {
-  background-color: #11111A;
+  background-color: @grey-dark;
 
   .selected::before {
     background-color: #22222A;
@@ -82,8 +92,8 @@ atom-panel .output {
 }
 
 .comment {
+  font-style: italic;
   color: @grey;
-  font-weight: 500;
 
   &.quote {
     font-style: oblique;
@@ -118,7 +128,7 @@ atom-panel .output {
     font-weight: 500;
 
     &.arithmetic {
-      color: @orange;
+      color: @md-cyan;
     }
 
     &.assignment {
@@ -135,8 +145,16 @@ atom-panel .output {
       font-weight: 800;
     }
 
+    &.logical {
+      color: @md-cyan;
+    }
+
     &.logical.python {
       color: @blue;
+    }
+
+    &.bitwise {
+      color: @md-cyan;
     }
 
     &.elm {
@@ -152,7 +170,7 @@ atom-panel .output {
   }
 
   &.other.unit {
-    color: @orange;
+    color: @md-amber;
   }
 
   &.other.colon {
@@ -162,19 +180,20 @@ atom-panel .output {
 }
 
 .storage {
-  color: @blue;
-  font-weight: 600;
-
-  &.type.string {
-    color: @grey-middle;
-  }
+  color: @grey-middle;
 }
 
 .constant {
-  color: @orange;
+  color: @md-cyan;
 
-  &.language.python {
-    color: @white;
+  &.language {
+    &.boolean {
+      color: @grey-middle;
+    }
+
+    &.python {
+      color: @white;
+    }
   }
 
   &.keyword {
@@ -183,19 +202,19 @@ atom-panel .output {
   }
 
   &.character.escape {
-    color: @cyan;
+    color: @md-cyan;
   }
 
   &.numeric {
-    color: @cyan;
+    color: @md-cyan;
   }
 
   &.other.color {
-    color: @cyan;
+    color: @md-cyan;
   }
 
   &.other.caps {
-    color: @white;
+    color: @grey-middle;
   }
 
   &.other.symbol {
@@ -213,45 +232,54 @@ atom-panel .output {
 }
 
 .variable {
-  color: @grey-very-light;
-
   &.interpolation {
-    color: darken(@cyan, 10%);
+    color: darken(@md-cyan, 10%);
   }
 
   &.magic {
-    color: @white;
     font-weight: 500;
+    color: @md-cyan;
   }
 
   &.language {
-    color: @white;
+    color: @md-cyan;
 
-    &.special.self {
+    &.this {
+      font-style: italic;
+    }
+
+    &.special.self, &.special.cls {
       color: @grey-middle;
     }
   }
 
   &.parameter.function {
-    color: @white;
-  }
-
-  &.parameter.function-call {
-    font-weight: 400;
-    color: @grey-light;
-  }
-
-  &.other.constant {
+    font-weight: 500;
     color: @grey-middle;
   }
 
-  &.other.anonymous {
-    color: @orange;
+  &.parameter.function-call {
+    color: @white;
   }
 
-  &.other.readwrite {
-    color: @cyan;
+  &.other {
+    &.constant {
+      color: @grey-middle;
+    }
+
+    &.anonymous {
+      color: @md-amber;
+    }
+
+    &.readwrite {
+      color: @white;
+    }
+
+    &.object {
+      color: @grey-light;
+    }
   }
+
 
   &.unordered.list, &.ordered.list {
     font-weight: 600;
@@ -260,14 +288,17 @@ atom-panel .output {
 }
 
 .invalid.illegal {
-  background-color: @red;
+  background-color: @md-red;
   color: @syntax-background-color;
 }
 
 .string {
   font-style: italic;
-  font-weight: 500;
-  color: @cyan;
+  color: @grey-light;
+
+  &.unquoted {
+    color: @white;
+  }
 
   &.quoted.docstring {
     font-style: normal;
@@ -275,47 +306,54 @@ atom-panel .output {
   }
 
   &.quoted.docstring.raw.single {
-    font-weight: 300;
-    color: @red;
+    color: @md-amber;
   }
 
   &.regexp {
-    color: @cyan;
+    color: @md-cyan;
 
     .source.ruby.embedded {
-      color: @red;
+      color: @md-red;
     }
   }
 
   &.other.link {
-    color: @cyan;
+    color: @md-cyan;
   }
 }
 
 .punctuation {
   &.parenthesis {
-    color: @cyan;
+    color: @md-cyan;
   }
 
-  &.separator.inheritance {
-    color: @cyan;
-  }
-
-  &.separator.annotation {
-    color: @grey-middle;
-  }
-
-  &.separator.parameters {
-    color: @grey-light;
-  }
-
-  &.definition {
-    &.dict {
-      color: @cyan;
+  &.separator {
+    &.key-value {
+      color: @md-cyan;
     }
 
-    &.list {
-      color: @cyan;
+    &.inheritance {
+      color: @md-cyan;
+    }
+
+    &.annotation {
+      color: @grey-middle;
+    }
+
+    &.parameters {
+      color: @grey-light;
+    }
+  }
+
+
+  &.definition {
+    &.tag {
+      color: @md-amber;
+    }
+
+    &.dict, &.list,
+    &.array, &.string {
+      color: @grey-middle;
     }
 
     &.inheritance {
@@ -323,21 +361,15 @@ atom-panel .output {
     }
 
     &.variable {
-      color: @cyan;
+      color: @md-cyan;
     }
 
     &.comment {
       color: @grey;
-      font-weight: 500;
-    }
-
-    &.string,
-    &.array {
-      color: @grey-middle;
     }
 
     &.parameters {
-      color: @grey-light;
+      color: @grey-middle;
     }
 
     &.arguments {
@@ -356,12 +388,12 @@ atom-panel .output {
     }
 
     &.bold {
-      color: @light-orange;
+      color: @md-amber;
       font-weight: bold;
     }
 
     &.italic {
-      color: @purple;
+      color: @md-purple;
       font-style: italic;
     }
   }
@@ -394,9 +426,14 @@ atom-panel .output {
   }
 }
 
+
 .support {
   &.class {
     color: @grey-middle;
+
+    &.component {
+      color: @md-amber;
+    }
   }
 
   &.constant.elm {
@@ -404,14 +441,18 @@ atom-panel .output {
   }
 
   &.function  {
-    color: @cyan;
+    color: @md-amber;
+
+    &.console {
+      color: @md-amber;
+    }
 
     &.magic {
       color: @white;
     }
 
     &.builtin {
-      color: @white;
+      color: @md-amber;
 
       &.decorator {
         color: @grey-middle;
@@ -419,23 +460,23 @@ atom-panel .output {
     }
 
     &.any-method {
-      font-weight: 600;
       color: @blue;
     }
   }
 
   &.type.python {
-    color: @cyan;
+    color: @md-amber;
   }
 
   &.type.exception {
-    color: @cyan;
+    color: @md-orange;
   }
 
   &.type.prelude.elm {
-    color: @cyan;
+    color: @md-cyan;
   }
 }
+
 
 .entity {
   &.name.function {
@@ -465,14 +506,14 @@ atom-panel .output {
 
   &.name.tag {
     font-weight: 600;
-    color: @blue;
+    color: @md-amber;
   }
 
   &.other.attribute-name {
-    color: @orange;
+    color: @md-amber;
 
     &.html {
-      color: @grey-middle;
+      color: @md-cyan;
     }
 
     &.id {
@@ -483,29 +524,40 @@ atom-panel .output {
 }
 
 .meta {
+  &.brace {
+    &.square, &.curly, &.round {
+      color: @grey-middle;
+    }
+  }
+
   &.class.inheritance {
     color: @white;
   }
 
   &.symbol.clojure {
-    color: @cyan;
+    color: @md-cyan;
   }
 
   &.function {
     &.parameters {
       color: @grey-middle;
     }
+
+    &.decorator {
+      .meta.function-call.arguments,
+      .variable.parameter.function-call,
+      .support.type {
+        color: @grey-middle;
+      }
+    }
   }
 
   &.function-call {
+    font-weight: 500;
     color: @blue;
 
     &.arguments {
-      color: @grey-middle;
-    }
-
-    .keyword.operator.assignment {
-      color: @grey-middle;
+      color: @white;
     }
   }
 
@@ -514,7 +566,7 @@ atom-panel .output {
   }
 
   &.link {
-    color: @orange;
+    color: @md-amber;
   }
 
   &.require {
@@ -522,11 +574,11 @@ atom-panel .output {
   }
 
   &.selector {
-    color: @purple;
+    color: @md-purple;
   }
 
   &.separator {
-    background-color: @gray;
+    background-color: @grey;
     color: @syntax-text-color;
   }
 
@@ -564,11 +616,11 @@ atom-panel .output {
   }
 
   &.changed {
-    color: @red;
+    color: @md-red;
   }
 
   &.deleted {
-    color: @red;
+    color: @md-red;
   }
 
   &.italic {
@@ -576,20 +628,20 @@ atom-panel .output {
     color: @grey-dark;
 
     &:hover {
-      background-color: @orange;
+      background-color: @md-amber;
     }
   }
 
   &.inserted {
-    color: @green;
+    color: @md-green;
   }
 
   &.list {
-    color: @red;
+    color: @md-red;
   }
 
   &.quote {
-    color: @orange;
+    color: @md-amber;
   }
 
   &.underline.link {
@@ -597,15 +649,15 @@ atom-panel .output {
   }
 
   &.raw {
-    color: @cyan;
+    color: @md-cyan;
   }
 
   &.raw.inline {
-    color: @green;
+    color: @md-green;
   }
 
   &.heading {
-    color: @green;
+    color: @md-green;
 
     &.punctuation.definition.heading {
       font-weight: 600;
