@@ -10,14 +10,24 @@
 .keyword {
   color: @color-keyword;
 
-  &.operator.arithmetic {
-    // color: @color-constant;
+  &.operator.arithmetic,
+  &.operator.logical {
+    color: @color-constant;
+  }
+
+  &.other.unit {
+    color: @color-constant;
   }
 }
 
 .entity {
   &.class.css {
     color: @color-keyword;
+  }
+
+  &.name.tag.reference,
+  &.name.tag.custom {
+    color: @color-constant;
   }
 }
 
@@ -61,11 +71,232 @@
   &.numeric {
     color: @color-constant;
   }
+
+  &.language.boolean {
+    color: @color-constant;
+  }
 }
 
 .comment {
   color: @color-comment;
 }
+
+.support {
+  &.constant {
+    &.font-name,
+    &.property-value {
+      color: @color-string;
+    }
+  }
+
+  &.function.misc {
+    color: @color-keyword;
+  }
+}
+
+
+// JS Specific
+
+.source.js {
+  .keyword.operator + .entity.name.function {
+    color: @color-string;
+  }
+
+  .constant {
+    &.other.object.key {
+      font-style: italic;
+
+      .string.unquoted {
+        font-style: italic;
+      }
+    }
+  }
+
+  .entity.name.class {
+    color: @color-string;
+  }
+
+  .support {
+    &.type.object.dom,
+    &.class.builtin {
+      color: @color-constant;
+    }
+
+    &.function.mutator {
+      color: @color-keyword;
+    }
+  }
+
+  .storage.type.function + .entity.name.function {
+    color: @color-string;
+  }
+
+  .variable {
+    &.language.this,
+    &.language.prototype {
+      font-style: italic;
+      color: @color-constant;
+    }
+  }
+
+  .meta {
+    &.brace.square {
+      color: @color-constant;
+    }
+  }
+
+  .punctuation {
+    &.separator.key-value {
+      color: @color-keyword;
+    }
+  }
+}
+
+
+// CSS Specific
+
+.source.css {
+  .variable {
+    &.parameter.url {
+      color: @color-constant;
+    }
+  }
+
+  .invalid {
+    &.illegal {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.other.attribute-name.pseudo-class {
+      color: @color-keyword;
+    }
+
+    &.name.tag {
+      color: @color-keyword;
+    }
+  }
+
+  .meta {
+    &.property-value {
+      color: @color-string;
+    }
+
+    &.keyframes {
+      .entity.other.attribute-name {
+        color: @color-constant;
+      }
+    }
+  }
+
+  .punctuation {
+    &.section.function {
+      color: @color-text;
+    }
+  }
+}
+
+
+// HTML Specific
+
+.text.html {
+  .meta {
+    &.tag.sgml.doctype {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.name.tag {
+      color: @color-keyword;
+    }
+  }
+
+  .punctuation {
+    &.definition.tag {
+      color: @color-keyword;
+    }
+  }
+}
+
+
+// Python Specific
+
+.source.python {
+  .keyword {
+    &.operator.logical {
+      color: @color-keyword;
+    }
+  }
+
+  .constant {
+    &.language {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.name.type.class {
+      color: @color-string;
+    }
+
+    &.name.function {
+      color: @color-string;
+
+      &.decorator {
+        color: @color-comment;
+      }
+    }
+  }
+
+  .storage {
+    &.type.function {
+      color: @color-keyword;
+    }
+  }
+
+  .support {
+    &.function.builtin {
+      color: @color-constant;
+    }
+
+    &.function.magic {
+      color: @color-string;
+    }
+  }
+
+  .variable {
+    &.language.parameter.special.self {
+      color: @color-text;
+    }
+
+    &.language.special.self {
+      color: @color-constant;
+    }
+  }
+
+  .meta {
+    &.function.decorator {
+      .support.type {
+        color: @color-comment;
+      }
+    }
+  }
+}
+
+// Django Specific
+
+.entity.other.django.tagbraces {
+  color: @color-constant;
+}
+
+.keyword.control.django {
+  color: @color-constant;
+}
+
+
+// Text Editor
 
 atom-text-editor, :host {
   font-weight: 400;
