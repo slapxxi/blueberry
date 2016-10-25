@@ -97,7 +97,12 @@
 
 // JS Specific
 
-.source.js {
+.source.js,
+.source.js.jsx {
+  .console {
+    color: @color-constant;
+  }
+
   .keyword.operator + .entity.name.function {
     color: @color-string;
   }
@@ -107,13 +112,19 @@
       font-style: italic;
 
       .string.unquoted {
-        font-style: italic;
+        color: @color-string;
       }
     }
   }
 
-  .entity.name.class {
-    color: @color-string;
+  .entity {
+    &.name.tag {
+      color: @color-constant;
+    }
+
+    &.name.class {
+      color: @color-string;
+    }
   }
 
   .support {
@@ -124,6 +135,10 @@
 
     &.function.mutator {
       color: @color-keyword;
+    }
+
+    &.class.component {
+      color: @color-constant;
     }
   }
 
@@ -148,6 +163,14 @@
   .punctuation {
     &.separator.key-value {
       color: @color-keyword;
+    }
+
+    &.definition.tag.jsx {
+      color: @color-constant;
+    }
+
+    &.section.embedded {
+      color: @color-constant;
     }
   }
 }

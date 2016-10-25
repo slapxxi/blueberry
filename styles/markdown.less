@@ -1,0 +1,61 @@
+.source.gfm {
+  color: @color-string;
+
+  .markup {
+    &.heading {
+      color: @color-keyword;
+    }
+
+    &.bold {
+      font-weight: bold;
+      color: @color-constant;
+    }
+
+    &.italic {
+      font-style: italic;
+      color: @color-constant;
+    }
+
+    &.strike {
+      text-decoration: line-through;
+      color: @color-constant;
+    }
+
+    &.link {
+      position: relative;
+      color: @color-constant;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 1px;
+        background: @color-constant;
+      }
+    }
+  }
+
+  .variable {
+    &.list {
+      color: @color-keyword;
+    }
+  }
+
+  .comment {
+    &.quote {
+      font-style: italic;
+      color: @color-constant;
+    }
+  }
+}
+
+.cursor-line {
+  .source.gfm {
+    .markup.link:after {
+      background: transparent;
+    }
+  }
+}
