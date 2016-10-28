@@ -99,7 +99,7 @@
 
 .source.js,
 .source.js.jsx {
-  .console {
+  .function.console {
     color: @color-constant;
   }
 
@@ -151,6 +151,10 @@
     &.language.prototype {
       font-style: italic;
       color: @color-constant;
+    }
+
+    &.other.readwrite.shorthandpropertyname {
+      color: @color-string;
     }
   }
 
@@ -217,28 +221,9 @@
     &.section.function {
       color: @color-text;
     }
-  }
-}
 
-
-// HTML Specific
-
-.text.html {
-  .meta {
-    &.tag.sgml.doctype {
-      color: @color-constant;
-    }
-  }
-
-  .entity {
-    &.name.tag {
-      color: @color-keyword;
-    }
-  }
-
-  .punctuation {
-    &.definition.tag {
-      color: @color-keyword;
+    &.separator.key-value {
+      color: @color-text;
     }
   }
 }
@@ -307,17 +292,6 @@
     }
   }
 }
-
-// Django Specific
-
-.entity.other.django.tagbraces {
-  color: @color-constant;
-}
-
-.keyword.control.django {
-  color: @color-constant;
-}
-
 
 // Text Editor
 

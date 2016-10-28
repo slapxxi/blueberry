@@ -22,19 +22,7 @@
     }
 
     &.link {
-      position: relative;
       color: @color-constant;
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 5%;
-        right: 5%;
-        width: 90%;
-        height: 1px;
-        background: @color-constant;
-      }
     }
   }
 
@@ -48,14 +36,6 @@
     &.quote {
       font-style: italic;
       color: @color-constant;
-    }
-  }
-}
-
-.cursor-line {
-  .source.gfm {
-    .markup.link:after {
-      background: transparent;
     }
   }
 }

@@ -1,0 +1,45 @@
+.text.html {
+  .meta {
+    &.tag.sgml.doctype {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.name.tag {
+      color: @color-keyword;
+    }
+  }
+
+  .punctuation {
+    &.definition.tag {
+      color: @color-keyword;
+    }
+  }
+}
+
+.source.jade {
+  .entity {
+    &.name.tag {
+      color: @color-keyword;
+    }
+  }
+
+  .storage {
+    &.type.function {
+      color: @color-keyword;
+    }
+
+    &.type.import.include {
+      color: @color-constant;
+    }
+  }
+}
+
+.entity.other.django.tagbraces {
+  color: @color-constant;
+}
+
+.keyword.control.django {
+  color: @color-constant;
+}
