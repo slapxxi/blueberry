@@ -29,6 +29,10 @@
   &.name.tag.custom {
     color: @color-constant;
   }
+
+  &.name.tag {
+    color: @color-keyword;
+  }
 }
 
 .string {
@@ -114,6 +118,10 @@
       .string.unquoted {
         color: @color-string;
       }
+    }
+
+    &.language.null {
+      color: @color-constant;
     }
   }
 
@@ -288,6 +296,31 @@
     &.function.decorator {
       .support.type {
         color: @color-comment;
+      }
+    }
+  }
+}
+
+.source.yaml {
+  .string.unquoted {
+    color: @color-string;
+  }
+}
+
+.source.json {
+  .meta.structure {
+    &.dictionary {
+      .string.quoted,
+      .punctuation.definition.string {
+        color: @color-keyword;
+      }
+
+    }
+
+    &.dictionary.value {
+      .string.quoted,
+      .punctuation.definition.string {
+        color: @color-string;
       }
     }
   }
