@@ -120,7 +120,8 @@
       }
     }
 
-    &.language.null {
+    &.language.null,
+    &.language.undefined {
       color: @color-constant;
     }
   }
@@ -141,8 +142,12 @@
       color: @color-constant;
     }
 
-    &.function.mutator {
-      color: @color-keyword;
+    &.function {
+      color: @color-constant;
+
+      &.mutator {
+        color: @color-keyword;
+      }
     }
 
     &.class.component {
