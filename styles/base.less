@@ -54,7 +54,8 @@
 }
 
 .storage {
-  &.type.js {
+  &.type.js,
+  &.modifier.js {
     color: @color-keyword;
   }
 
@@ -107,10 +108,6 @@
     color: @color-constant;
   }
 
-  .keyword.operator + .entity.name.function {
-    color: @color-string;
-  }
-
   .constant {
     &.other.object.key {
       font-style: italic;
@@ -131,7 +128,12 @@
       color: @color-constant;
     }
 
-    &.name.class {
+    &.name.class,
+    &.name.accessor {
+      color: @color-string;
+    }
+
+    &.name.function.method {
       color: @color-string;
     }
   }
@@ -140,6 +142,10 @@
     &.type.object.dom,
     &.class.builtin {
       color: @color-constant;
+
+      &.flowtype {
+        color: @color-comment;
+      }
     }
 
     &.function {
@@ -153,6 +159,11 @@
     &.class.component {
       color: @color-constant;
     }
+
+    &.flowtype {
+      font-style: italic;
+      color: @color-comment;
+    }
   }
 
   .storage.type.function + .entity.name.function {
@@ -160,10 +171,22 @@
   }
 
   .variable {
+    &.other.constant {
+      color: @color-constant;
+    }
+
+    &.other.class {
+      color: @color-string;
+    }
+
     &.language.this,
     &.language.prototype {
       font-style: italic;
       color: @color-constant;
+    }
+
+    &.other.readwrite {
+      color: @color-text;
     }
 
     &.other.readwrite.shorthandpropertyname {
@@ -178,6 +201,10 @@
   }
 
   .punctuation {
+    &.quasi {
+      color: @color-constant;
+    }
+
     &.separator.key-value {
       color: @color-keyword;
     }
