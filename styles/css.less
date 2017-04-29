@@ -1,0 +1,45 @@
+.syntax--source.syntax--css {
+  .variable {
+    &.parameter.url {
+      color: @color-constant;
+    }
+  }
+
+  .invalid {
+    &.illegal {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.other.attribute-name.pseudo-class {
+      color: @color-keyword;
+    }
+
+    &.name.tag {
+      color: @color-keyword;
+    }
+  }
+
+  .meta {
+    &.property-value {
+      color: @color-string;
+    }
+
+    &.keyframes {
+      .entity.other.attribute-name {
+        color: @color-constant;
+      }
+    }
+  }
+
+  .punctuation {
+    &.section.function {
+      color: @color-text;
+    }
+
+    &.separator.key-value {
+      color: @color-text;
+    }
+  }
+}

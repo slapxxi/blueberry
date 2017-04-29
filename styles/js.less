@@ -1,0 +1,144 @@
+.syntax--source.syntax--js,
+.syntax--source.syntax--js.syntax--jsx {
+  .function.console {
+    color: @color-constant;
+  }
+
+  .syntax--constant {
+    &.other.object.key {
+      font-style: italic;
+
+      .string.unquoted {
+        color: @color-string;
+      }
+    }
+
+    &.language.null,
+    &.language.undefined {
+      color: @color-constant;
+    }
+
+    &.syntax--units,
+    &.syntax--percentage.syntax--units,
+    &.syntax--length.syntax--units,
+    &.syntax--angle.syntax--units {
+      color: @color-constant;
+    }
+  }
+
+  .syntax--entity {
+    &.syntax--name {
+      &.syntax--tag {
+        color: @color-constant;
+
+        &.syntax--styledcss {
+          color: @color-string;
+        }
+      }
+
+      &.syntax--class,
+      &.syntax--accessor,
+      &.syntax--function.syntax--method {
+        color: @color-string;
+      }
+    }
+  }
+
+  .syntax--support {
+    &.syntax--constant.syntax--color.syntax--css {
+      color: white;
+    }
+
+    &.syntax--type.syntax--object.syntax--dom,
+    &.syntax--class.syntax--builtin {
+      color: @color-constant;
+
+      &.syntax--flowtype {
+        color: @color-comment;
+      }
+    }
+
+    &.syntax--function {
+      color: @color-constant;
+
+      &.syntax--css {
+        color: @color-string;
+      }
+
+      &.syntax--mutator {
+        color: @color-keyword;
+      }
+    }
+
+    &.class.component {
+      color: @color-constant;
+    }
+
+    &.flowtype {
+      font-style: italic;
+      color: @color-comment;
+    }
+  }
+
+  .storage.type.function + .entity.name.function {
+    color: @color-string;
+  }
+
+  .variable {
+    &.other {
+      &.object {
+        color: @color-string;
+      }
+
+      &.constant {
+        color: @color-constant;
+      }
+
+      &.class {
+        color: @color-string;
+      }
+
+      &.readwrite {
+        color: @color-text;
+
+        &.decorator {
+          color: @color-keyword;
+        }
+      }
+
+      &.readwrite.shorthandpropertyname {
+        color: @color-string;
+      }
+    }
+
+    &.language.this,
+    &.language.prototype {
+      font-style: italic;
+      color: @color-constant;
+    }
+  }
+
+  .syntax--meta {
+    &.syntax--identifier.syntax--css {
+      color: @color-constant;
+    }
+  }
+
+  .punctuation {
+    &.quasi {
+      color: @color-constant;
+    }
+
+    &.separator.key-value {
+      color: @color-keyword;
+    }
+
+    &.definition.tag.jsx {
+      color: @color-constant;
+    }
+
+    &.section.embedded {
+      color: @color-constant;
+    }
+  }
+}

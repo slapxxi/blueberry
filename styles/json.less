@@ -1,0 +1,24 @@
+.syntax--source.syntax--json {
+  .syntax--constant {
+    &.syntax--language {
+      color: @color-constant;
+    }
+  }
+  
+  .syntax--meta.syntax--structure {
+    &.dictionary {
+      .string.quoted,
+      .punctuation.definition.string {
+        color: @color-keyword;
+      }
+
+    }
+
+    &.dictionary.value {
+      .string.quoted,
+      .punctuation.definition.string {
+        color: @color-string;
+      }
+    }
+  }
+}

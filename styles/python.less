@@ -1,0 +1,61 @@
+.syntax--source.syntax--python {
+  .keyword {
+    &.operator.logical {
+      color: @color-keyword;
+    }
+  }
+
+  .constant {
+    &.language {
+      color: @color-constant;
+    }
+  }
+
+  .entity {
+    &.name.type.class {
+      color: @color-string;
+    }
+
+    &.name.function {
+      color: @color-string;
+
+      &.decorator {
+        color: @color-comment;
+      }
+    }
+  }
+
+  .storage {
+    &.type.function {
+      color: @color-keyword;
+    }
+  }
+
+  .support {
+    &.function.builtin {
+      color: @color-constant;
+    }
+
+    &.function.magic {
+      color: @color-string;
+    }
+  }
+
+  .variable {
+    &.language.parameter.special.self {
+      color: @color-text;
+    }
+
+    &.language.special.self {
+      color: @color-constant;
+    }
+  }
+
+  .meta {
+    &.function.decorator {
+      .support.type {
+        color: @color-comment;
+      }
+    }
+  }
+}
