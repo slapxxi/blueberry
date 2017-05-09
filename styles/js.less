@@ -29,7 +29,7 @@
   .syntax--entity {
     &.syntax--name {
       &.syntax--tag {
-        color: @color-constant;
+        color: @color-builtin;
 
         &.syntax--styledcss {
           color: @color-string;
@@ -51,7 +51,7 @@
 
     &.syntax--type.syntax--object.syntax--dom,
     &.syntax--class.syntax--builtin {
-      color: @color-constant;
+      color: @color-builtin;
 
       &.syntax--flowtype {
         color: @color-comment;
@@ -71,7 +71,7 @@
     }
 
     &.class.component {
-      color: @color-constant;
+      color: @color-builtin;
     }
 
     &.flowtype {
@@ -113,8 +113,7 @@
 
     &.language.this,
     &.language.prototype {
-      font-style: italic;
-      color: @color-constant;
+      color: @color-builtin;
     }
   }
 
@@ -134,7 +133,7 @@
     }
 
     &.definition.tag.jsx {
-      color: @color-constant;
+      color: @color-builtin;
     }
 
     &.section.embedded {
