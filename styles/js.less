@@ -4,6 +4,16 @@
     color: @color-constant;
   }
 
+  .syntax--keyword {
+    &.syntax--generator {
+      color: @color-builtin;
+
+      & ~ .syntax--entity.syntax--name.syntax--function {
+        color: @color-string;
+      }
+    }
+  }
+
   .syntax--constant {
     &.other.object.key {
       font-style: italic;
@@ -59,7 +69,7 @@
     }
 
     &.syntax--function {
-      color: @color-constant;
+      color: @color-builtin;
 
       &.syntax--css {
         color: @color-string;
@@ -75,7 +85,6 @@
     }
 
     &.flowtype {
-      font-style: italic;
       color: @color-comment;
     }
   }
