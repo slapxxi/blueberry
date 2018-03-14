@@ -4,12 +4,35 @@
     color: @color-constant;
   }
 
+  .meta.object > .storage.type.function {
+    color: @color-string;
+
+    &.arrow {
+      color: @color-keyword;
+    }
+  }
+
+  // recent addition
+  .meta.function.arrow > .entity.name.function {
+    color: @color-string;
+  }
+
+  .syntax--kewyword,
   .syntax--keyword {
     &.syntax--generator {
       color: @color-builtin;
 
       & ~ .syntax--entity.syntax--name.syntax--function {
         color: @color-string;
+      }
+    }
+
+    &.syntax--operator {
+      &.syntax--intersection.syntax--flowtype,
+      &.syntax--union.syntax--flowtype,
+      &.syntax--maybe.syntax--flowtype,
+      &.syntax--optional.syntax--parameter.syntax--flowtype {
+        color: @color-type;
       }
     }
   }
@@ -55,6 +78,10 @@
   }
 
   .syntax--support {
+    &.syntax--type.syntax--class.syntax--interface {
+      color: @color-type;
+    }
+
     &.syntax--constant.syntax--color.syntax--css {
       color: white;
     }
@@ -64,7 +91,7 @@
       color: @color-builtin;
 
       &.syntax--flowtype {
-        color: @color-comment;
+        color: @color-type;
       }
     }
 
@@ -85,7 +112,7 @@
     }
 
     &.flowtype {
-      color: @color-comment;
+      color: @color-type;
     }
   }
 
