@@ -1,7 +1,13 @@
+.javascript,
+.flow-javascript,
 .syntax--source.syntax--js,
 .syntax--source.syntax--js.syntax--jsx {
   .function.console {
     color: @color-constant;
+  }
+
+  .type_alias_declaration {
+    color: @color-keyword;
   }
 
   .meta.object > .storage.type.function {
@@ -108,7 +114,7 @@
     }
 
     &.class.component {
-      color: @color-builtin;
+      color: @color-string;
     }
 
     &.flowtype {
@@ -169,7 +175,7 @@
     }
 
     &.definition.tag.jsx {
-      color: @color-builtin;
+      color: @color-text;
     }
 
     &.section.embedded {
