@@ -2,6 +2,16 @@
 .flow-javascript,
 .syntax--source.syntax--js,
 .syntax--source.syntax--js.syntax--jsx {
+  .support.type.primitive.flowtype,
+  .support.type.builtin.primitive.flowtype {
+    color: @color-constant;
+  }
+
+  .syntax--meta.syntax--brace.syntax--curly
+    ~ .syntax--variable.syntax--other.syntax--readwrite {
+    color: @color-string;
+  }
+
   .function.console {
     color: @color-constant;
   }
@@ -97,7 +107,7 @@
       color: @color-builtin;
 
       &.syntax--flowtype {
-        color: @color-type;
+        color: @color-constant;
       }
     }
 
