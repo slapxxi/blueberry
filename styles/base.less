@@ -1,10 +1,19 @@
-@import "syntax-variables";
-@import "vim-mode";
-
+@import 'syntax-variables';
+@import 'vim-mode';
 
 .meta.function-call.generic,
 .entity.name.function {
   color: @color-keyword;
+}
+
+.meta.brace.square,
+.meta.brace.curly,
+.meta.brace.round {
+  color: @color-punctuation;
+}
+
+.punctuation {
+  color: @color-punctuation;
 }
 
 .keyword {
@@ -104,7 +113,8 @@
 atom-text-editor {
 }
 
-atom-text-editor, :host {
+atom-text-editor,
+:host {
   font-weight: 400;
   background-color: @syntax-background-color;
   color: @syntax-text-color;

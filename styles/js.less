@@ -1,19 +1,48 @@
 .javascript,
 .flow-javascript,
 .syntax--source.syntax--js,
+.syntax--source.syntax--ts,
+.syntax--source.syntax--tsx,
 .syntax--source.syntax--js.syntax--jsx {
+  .punctuation.quasi {
+    color: @color-constant;
+  }
+
+  .punctuation.definition.tag.jsx {
+    color: @color-punctuation;
+  }
+
+  .punctuation.separator.key-value {
+    color: @color-keyword;
+  }
+
+  .punctuation.section.embedded {
+    color: @color-constant;
+  }
+
+  .entity.name.type.instance {
+    color: @color-constant;
+  }
+
   .support.type.primitive.flowtype,
   .support.type.builtin.primitive.flowtype {
     color: @color-constant;
   }
 
-  .syntax--meta.syntax--brace.syntax--curly
-    ~ .syntax--variable.syntax--other.syntax--readwrite {
+  .support.type.object.console {
     color: @color-string;
   }
 
-  .function.console {
+  .support.function.console {
     color: @color-constant;
+  }
+
+  .meta.function.parameters .variable.other.property {
+    color: @color-string;
+  }
+
+  .meta.brace.curly ~ .variable.other.readwrite {
+    color: @color-string;
   }
 
   .type_alias_declaration {
@@ -28,7 +57,6 @@
     }
   }
 
-  // recent addition
   .meta.function.arrow > .entity.name.function {
     color: @color-string;
   }
@@ -171,24 +199,6 @@
 
   .syntax--meta {
     &.syntax--identifier.syntax--css {
-      color: @color-constant;
-    }
-  }
-
-  .punctuation {
-    &.quasi {
-      color: @color-constant;
-    }
-
-    &.separator.key-value {
-      color: @color-keyword;
-    }
-
-    &.definition.tag.jsx {
-      color: @color-constant;
-    }
-
-    &.section.embedded {
       color: @color-constant;
     }
   }

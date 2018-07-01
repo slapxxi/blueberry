@@ -1,0 +1,102 @@
+.syntax--source.syntax--ts,
+.syntax--source.syntax--tsx {
+  .syntax--variable.syntax--parameter {
+    color: @color-text;
+  }
+
+  .variable.other.object.property {
+    color: @color-text;
+  }
+
+  .syntax--meta.syntax--object-binding-pattern-variable.syntax--ts
+    .variable.other.readwrite,
+  .syntax--meta.syntax--object-binding-pattern-variable.syntax--tsx
+    .variable.other.readwrite {
+    color: @color-string;
+  }
+
+  .meta.definition.function,
+  .meta.definition.method {
+    color: @color-string;
+  }
+
+  .meta.block .variable.other.readwrite.alias {
+    color: @color-string;
+  }
+
+  .syntax--meta.syntax--object-literal.syntax--key {
+    color: @color-string;
+
+    &.separator.key-value {
+      color: @color-punctuation;
+    }
+  }
+
+  .storage.modifier,
+  .storage.type {
+    color: @color-keyword;
+  }
+
+  .entity.name.type,
+  .entity.name.type.alias,
+  .entity.name.function,
+  .entity.other.inherited-class,
+  .entity.name.type.module {
+    color: @color-string;
+  }
+
+  .string.template {
+    font-style: normal;
+    color: @color-text;
+  }
+
+  // overwrite previoius values
+  .meta.function-call .entity.name.function {
+    color: @color-keyword;
+  }
+
+  .support.type.builtin,
+  .support.type.primitive {
+    color: @color-constant;
+  }
+
+  .support.variable.dom {
+    color: @color-builtin;
+  }
+
+  .support.variable.property.dom {
+    color: @color-text;
+  }
+
+  .support.class.console {
+    color: @color-constant;
+  }
+
+  .support.function {
+    color: @color-keyword;
+  }
+
+  .support.function.dom {
+    color: @color-builtin;
+  }
+
+  .syntax--constant.syntax--language.syntax--import-export-all {
+    color: @color-constant;
+  }
+
+  .syntax--punctuation.syntax--definition.syntax--template-expression {
+    color: @color-constant;
+  }
+
+  .keyword.operator.type.annotation {
+    color: @color-punctuation;
+  }
+
+  .syntax--meta.syntax--parameter.syntax--object-binding-pattern {
+    color: @color-string;
+
+    .variable.parameter {
+      color: @color-string;
+    }
+  }
+}

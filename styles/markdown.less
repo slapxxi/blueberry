@@ -1,41 +1,34 @@
 .source.gfm {
   color: @color-string;
 
-  .markup {
-    &.heading {
-      color: @color-keyword;
-    }
-
-    &.bold {
-      font-weight: bold;
-      color: @color-constant;
-    }
-
-    &.italic {
-      font-style: italic;
-      color: @color-constant;
-    }
-
-    &.strike {
-      text-decoration: line-through;
-      color: @color-constant;
-    }
-
-    &.link {
-      color: @color-constant;
-    }
+  .markup.heading {
+    color: @color-keyword;
   }
 
-  .variable {
-    &.list {
-      color: @color-keyword;
-    }
+  .markup.bold {
+    color: @color-constant;
   }
 
-  .comment {
-    &.quote {
-      font-style: italic;
-      color: @color-constant;
-    }
+  .markup.link {
+    color: @color-constant;
+  }
+
+  .markup.italic {
+    font-style: italic;
+    color: @color-constant;
+  }
+
+  .markup.strike {
+    text-decoration: line-through;
+    color: @color-constant;
+  }
+
+  .variable.list {
+    color: @color-keyword;
+  }
+
+  .comment.quote {
+    font-style: italic;
+    color: @color-constant;
   }
 }
